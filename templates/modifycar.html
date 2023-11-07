@@ -1,0 +1,72 @@
+{% extends "main.html" %}
+{% block title %}Modify Car{% endblock %}
+{% block content %}
+<h1 class="lead">Car ID:</h1>
+<form class="form-control" method="post">
+    <label class="form-label" for="brand">Brand:</label>
+    <input class="input-group" type="text" name="brand" id="brand" placeholder="Mercedes-Benz">
+    <label class="form-label" for="model">Brand:</label>
+    <input class="input-group" type="text" name="model" id="model" placeholder="S 350 CDI">
+    <label class="form-label" for="year">Manufactured:</label>
+    <input class="input-group" type="number" name="year" id="year" placeholder="2011">
+    <label class="form-label" for="vol">Engine:</label>
+    <input class="input-group" type="number" step="0.1" name="vol" id="vol" placeholder="2.9">
+    <label class="form-label" for="fuel">Fuel:</label>
+    <select class="form-select" name="fuel" id="fuel">
+        <option value="petrol">Petrol</option>
+        <option value="diesel">Diesel</option>
+        <option value="hybrid">Hybrid</option>
+        <option value="electric">Electric</option>
+        <option value="cng">Natural Gas</option>
+    </select>
+    <label class="form-label" class="form-label" for="gear">Gearbox:</label>
+    <select class="form-select" name="gear" id="gear">
+        <option value="manual">Manual</option>
+        <option value="automatic">Automatic</option>
+    </select>
+    <label class="form-label" for="wheel">Driving side:</label>
+    <select class="form-select" name="wheel" id="wheel">
+        <option value="left">Left hand side</option>
+        <option value="right">Right hand side</option>
+    </select>
+    <label class="form-label" for="doors">Type:</label>
+    <select class="form-select" name="doors" id="doors">
+        <option value="2doorsaloon">Two door saloon</option>
+        <option value="2doorcoupe">Two door coupe</option>
+        <option value="2doorhatch">Two door hatchback</option>
+        <option value="4doorwagon">Four door wagon</option>
+        <option value="4doorsaloon">Four door saloon</option>
+        <option value="4doorhatch">Four door hatchback</option>
+    </select>
+    <label class="form-label" for="milage">Milage:</label>
+    <input class="input-group" type="number" name="milage" id="milage" placeholder="65356 km">
+    <label class="form-label" for="price">Price</label>
+    <input class="input-group" type="number" step="0.01" name="price" id="price" placeholder="11999.99">
+    <label for="photos">Photos:</label>
+    <input class="form-control" type="file" name="photos" id="photos">
+    <label class="form-label" for="info">Additional information:</label>
+    <textarea class="form-control" name="info" id="info" cols="30" rows="10"></textarea>
+    <p class="lead">Features:</p>
+    <label class="form-check-label" for="stereo">Stereo:</label>
+    <input class="form-check-input" type="checkbox" name="stereo" id="stereo">
+    <label class="form-check-label" for="navi">Navigation:</label>
+    <input class="form-check-input" type="checkbox" name="navi" id="navi">
+    <label class="form-check-label" for="awd">All wheel drive:</label>
+    <input class="form-check-input" type="checkbox" name="awd" id="awd">
+    <label class="form-check-label" for="abs">ABS:</label>
+    <input class="form-check-input" type="checkbox" name="abs" id="abs">
+    <label class="form-check-label" for="esp">ESP:</label>
+    <input class="form-check-input" type="checkbox" name="esp" id="esp">
+    <label class="form-check-label" for="cruise">Cruise Control:</label>
+    <input class="form-check-input" type="checkbox" name="cruise" id="cruise">
+    <label class="form-check-label" for="elwindows">Electric windows:</label>
+    <input class="form-check-input" type="checkbox" name="elwindows" id="elwindows">
+    <label class="form-check-label" for="alloywheels">Alloy Wheels:</label>
+    <input class="form-check-input" type="checkbox" name="alloywheels" id="alloywheels">
+    <label class="form-check-label" for="aribag">Airbag:</label>
+    <input class="form-check-input" type="checkbox" name="airbag" id="airbag">
+    <div class="d-grid gap-2 mt-3">
+        <button class="btn btn-success" type="submit">Add Car</button>
+    </div>
+</form>
+{% endblock %}

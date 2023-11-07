@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block title %}Add Car{% endblock %}
+{% block content %}
+    <h3 class="lead">Update your profile info</h3>
+        <ul class="list-group-flush">
+            <li class="list-group-item">ID: {{user.id}}</li>
+            <li class="list-group-item">Name: {{user.name}}</li>
+            <li class="list-group-item">Sirname: {{user.sirname}}</li>
+            <li class="list-group-item">Email: {{user.email}}</li>
+            <li class="list-group-item">Created on: {{user.created_on}}</li>
+        </ul>
+    <form class="form-control" action="{{url_for('edit_profile')}}" method="post">
+        <label class="form-label" for="phone">Mobile:</label>
+        {% if user.phone %}
+        <input class="form-control" type="tel" name="phone" id="phone" placeholder="{{user.phone}}">
+        {% else %}
+        <input class="form-control" type="tel" name="phone" id="phone" >
+        {% endif %}
+        <label class="form-label" for="address">Address:</label>
+        {% if user.phone %}
+        <input class="form-control" type="text" name="address" id="address" placeholder="{{user.address}}">
+        {% else %}
+        <input class="form-control" type="text" name="address" id="address" >
+        {% endif %}
+        <button class="btn btn-success" type="submit">Update</button>
+    </form>
+    <form class="form-control" action="{{url_for('edit_profile')}}" enctype="multipart/form-data">
+        <label class="form-label" for="file">Update Photo</label>
+        <input class="form-control" type="file" name="file" id="file">
+        <button class="btn btn-success" type="submit">Upload</button>
+    </form>
+{% endblock %}

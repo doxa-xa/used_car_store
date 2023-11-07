@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+{% block title %}Add Photos{% endblock %}
+{% block content %}
+    {% for car in cars %}
+        <ul class="list-group">
+            <li class="list-group-item">ID: {{car.id}}</li>
+            <li class="list-group-item">Price: {{car.price}}</li>
+            <li class="list-group-item">Brand: {{car.brand}}</li>
+            <li class="list-group-item">Model: {{car.model}}</li>
+            <li class="list-group-item">Manufactured: {{car.manufactured}}</li>
+            <li class="list-group-item">Milage: {{car.milage}}</li>
+            <li class="list-group-item">Fuel: {{car.fuel}}</li>
+            <li class="list-group-item">Gearbox: {{car.gearbox}}</li>
+        </ul>
+        <form class="form-control mb-3" action="{{url_for('upload_photos')}}" method="post" enctype="multipart/form-data">
+            <label for="photos">Photos:</label>
+            <input class="form-control" type="file" name="photos" id="photos">
+            <input type="number" name="carid" id="carid" style="display: none;" value="{{car.id}}">
+            <div class="d-grid gap-2 mt-3">
+                <button class="btn btn-success" type="submit">Upload</button>
+            </div>
+        </form>
+    {% endfor %}
+{% endblock %}

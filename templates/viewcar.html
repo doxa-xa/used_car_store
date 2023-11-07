@@ -1,0 +1,96 @@
+{% extends "main.html" %}
+{% block title %}Add Car{% endblock %}
+{% block content %}
+<h3 class="lead">{{car.brand}} {{car.model}}</h3>
+<h5 class="text-bg-secondary">{{car.price}} $</h5>
+<div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      {% for i in range(1, photos.count()) %}
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{i}}" aria-label="Slide {{i+1}}"></button>
+      {% endfor %}
+    </div>
+    <div class="carousel-inner">
+    {% for photo in photos %}
+      <div class="carousel-item active">
+        <img src="../{{photo.photo_url}}" class="d-block w-100" alt="{{car.brand}} photo">
+      </div>
+    {% endfor %}
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <ul class="list-group list-group-flush mb-2">
+    <li class="list-group-item">Made in: {{car.manufactured}}</li>
+    <li class="list-group-item">Milage: {{car.milage}} km</li>
+    <li class="list-group-item">Fuel: {{car.fuel}}</li>
+    <li class="list-group-item">Engine: {{car.engine}} l</li>
+    <li class="list-group-item">Power: {{car.power}} kW</li>
+    <li class="list-group-item">Gearbox: {{car.gearbox}}</li>
+    <li class="list-group-item">Driving side: {{car.steering}}</li>
+    <li class="list-group-item">Doors: {{car.doors}}</li>
+   </ul>
+   <p class="lead p-2">{{car.info}}</p>
+  <ul class="list-group list-group-flush">
+    {% if car.ac %}
+        <li class="list-group-item">Air conditioning: &#10004;</li>
+    {% else %}
+        <li class="list-group-item">Air conditioning: &#10008;</li>
+    {% endif %}
+    {% if car.stereo %}
+        <li class="list-group-item">Audio system: &#10004;</li>
+    {% else %}
+        <li class="list-group-item">Audio system: &#10008;</li>
+    {% endif %}
+    {% if car.awd %}
+        <li class="list-group-item">All wheel drive: &#10004;</li>
+    {% else %}
+        <li class="list-group-item">All wheel drive: &#10008;</li>
+    {% endif %}
+    {% if car.satnav %}
+        <li class="list-group-item">Satellite Navigation: &#10004;</li>
+    {% else %}
+        <li class="list-group-item">Satellite Navigation: &#10008;</li>
+    {% endif %}
+    {% if car.abs %}
+        <li class="list-group-item">ABS system: &#10004;</li>
+    {% else %}
+        <li class="list-group-item">ABS system: &#10008;</li>
+    {% endif %}
+    {% if car.esp %}
+        <li class="list-group-item">ESP system: &#10004;</li>
+    {% else %}
+        <li class="list-group-item">ESP system: &#10008;</li>
+    {% endif %}
+    {% if car.airbag %}
+        <li class="list-group-item">Airbags: &#10004;</li>
+    {% else %}
+        <li class="list-group-item">Airbags: &#10008;</li>
+    {% endif %}
+    {% if car.cruize_control %}
+        <li class="list-group-item">Cruise Control: &#10004;</li>
+    {% else %}
+        <li class="list-group-item">Cruise Control: &#10008;</li>
+    {% endif %}
+    {% if car.electric_windows %}
+        <li class="list-group-item">Electric windows: &#10004;</li>
+    {% else %}
+        <li class="list-group-item">Electric windows: &#10008;</li>
+    {% endif %}
+    {% if car.alloy_wheels %}
+        <li class="list-group-item">Alloy wheels: &#10004;</li>
+    {% else %}
+        <li class="list-group-item">Alloy wheels: &#10008;</li>
+    {% endif %}
+    {% if car.central_locking %}
+        <li class="list-group-item">Central locking: &#10004;</li>
+    {% else %}
+        <li class="list-group-item">Central locking: &#10008;</li>
+    {% endif %}
+  </ul>
+{% endblock %}

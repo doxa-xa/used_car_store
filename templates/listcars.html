@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+{% block title %}List Cars{% endblock %}
+{% block content %}
+<div class="d-flex">
+    {% for car in cars %}
+<div class="card m-2" style="width: 18rem;">
+    {% if photos[0] and car.id == photos[0].car_id %}
+        <img src="{{photos[0].photo_url}}" class="card-img-top" alt="{{car.brand}} photo">
+    {% else %}
+        <img src="static/autoblank.jpg" class="card-img-top" alt="{{car.brand}} photo">
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{car.brand}} {{car.model}}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{car.price}} $</h6>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Fuel: {{car.fuel}}</li>
+        <li class="list-group-item">Engine: {{car.engine}} l</li>
+        <li class="list-group-item">Gerbox: {{car.gearbox}}</li>
+        <li class="list-group-item">Power: {{car.power}} kW</li>
+      </ul>
+      <p class="card-text">{{car.info}}</p>
+      <a href="/view/{{car.id}}" class="btn btn-primary">See more</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
